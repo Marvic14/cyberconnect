@@ -1,0 +1,49 @@
+@use "@/styles/variables";
+
+.header{
+  font-family: variables.$font-secondary;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  padding: 0 80px;
+  min-height: 60px;
+  background: linear-gradient(
+                  to right,
+                  var(--bg-dark) 0%,
+                  var(--light-bg-dark) 50%,
+                  var(--light-bg-dark) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(40px);
+}
+
+.div-logo{
+  padding: 5px 0;
+  width: 160px;
+  height: auto;
+  display: flex;
+  align-items: center;
+
+  img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+
+.menu ul{
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+}
+
+.menu ul li a{
+  font-size: 20px;
+  color: var(--primary-color);
+  text-decoration: none;
+}

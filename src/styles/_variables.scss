@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700&display=swap');
+ :root{
+  --bg-dark: #080808;
+  --light-bg-dark: #131313;
+  --main-color: #00ffee;
+  --primary-color: #dddddd;
+}
+
+// Mapeamento no SASS, caso precise alterar algo via JS
+$bg-dark: var(--bg-dark);
+$light-bg-dark: var(--light-bg-dark);
+$main-color: var(--main-color);
+$primary-color: var(--primary-color);
+
+
+$font-main: "Montserrat", sans-serif;
+$font-secondary: "Poppins", sans-serif;
