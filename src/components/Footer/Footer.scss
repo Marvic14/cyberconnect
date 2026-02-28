@@ -1,0 +1,159 @@
+@use "@/styles/variables" as v;
+
+.footer {
+  width: 100%;
+  background-color: #000;
+  color: #e0e0e0;
+  padding: 80px 0 40px 0; // Mais respiro no topo e base
+  margin-top: auto;
+  border-top: 1px solid #111;
+
+  .footer-container {
+    max-width: 1550px; // Sua régua mestre
+    margin: 0 auto;
+    padding: 0 50px;   // ISSO resolve o texto colado no canto
+
+    display: grid;
+    // Ajustei as colunas: a primeira é maior para a bio, as outras são iguais
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px; // Mais espaço entre as colunas para não amontoar
+
+    @media (max-width: 1100px) {
+      grid-template-columns: 1fr 1fr; // Quebra em 2x2 para tablets
+      gap: 40px;
+    }
+  }
+
+  .footer-section {
+    h4 {
+      font-family: v.$font-main;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      color: #ffffff;
+      opacity: 0.9;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #888;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0; // Mata o recuo padrão que está desalinhando com o título
+      margin: 0;
+
+      li {
+        display: flex;
+        align-items: center; // Centraliza o ícone verticalmente com o texto
+        margin-bottom: 12px;
+
+        .icon {
+          // O SEGREDO: Uma largura fixa garante que o texto comece sempre no mesmo lugar
+          width: 24px;
+          min-width: 24px;
+          margin-right: 12px;
+
+          display: flex;
+          justify-content: center; // Centraliza o desenho do ícone dentro do quadrado de 24px
+          font-size: 1.1rem;
+          color: #555;
+        }
+
+        a {
+          color: #999;
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          &.no-icon {
+            margin-left: 36px; // 24px (icon) + 12px (gap)
+
+            &:hover {
+              color: #fff;
+              .icon { color: #fff; } // Ícone acende junto com o link
+            }
+          }
+        }
+      }
+    }
+
+    .footer-logo {
+      font-size: 1.8rem;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      color: #fff;
+      span { color: #444; }
+    }
+  }
+
+  .footer-bottom {
+    background-color: #050505;
+    padding: 25px 0;
+
+    .bottom-content {
+      max-width: 1550px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #555;
+    }
+  }
+}
+
+// Mobile: 1 coluna única
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 0 0 0; // Menos espaço no topo no mobile
+
+    .footer-container {
+      // O SEGREDO: Usar 2 colunas no mobile deixa o footer menos longo e mais elegante
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 20px;
+      padding: 0 25px;
+      text-align: left; // Voltamos para a esquerda para alinhar com os ícones
+
+      .footer-section {
+        // A primeira seção (Logo e Bio) ocupa as duas colunas sozinha
+        &:first-child {
+          grid-column: span 2;
+          margin-bottom: 10px;
+        }
+
+        h4 {
+          font-size: 0.75rem; // Títulos menores para não brigar com o conteúdo
+          margin-bottom: 15px;
+          color: #fff;
+        }
+
+        ul li {
+          justify-content: flex-start; // Garante alinhamento à esquerda
+          margin-bottom: 10px;
+
+          .icon {
+            width: 20px;
+            min-width: 20px;
+            font-size: 1rem;
+          }
+
+          a {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding: 20px;
+
+      .bottom-content {
+        font-size: 0.7rem;
+        opacity: 0.6;
+      }
+    }
+  }
+}

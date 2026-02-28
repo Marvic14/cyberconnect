@@ -1,0 +1,15 @@
+@use "@/styles/variables";
+
+.contacts-page{
+  padding-top: variables.$header-height;
+  font-family: variables.$font-main;
+  max-width: 1550px;
+  height: 640px;
+  background-image: url("@/assets/img/ui/CyberConnect.webp");
+  background-attachment: fixed;
+
+  h1{
+    color: #131313;
+  }
+}
+

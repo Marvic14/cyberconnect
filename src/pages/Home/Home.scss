@@ -1,6 +1,177 @@
 @use "@/styles/variables";
 
 .home-page{
-  background-color: #000;
+  padding-top: 140px;
+  font-family: variables.$font-secondary;
+  max-width: 1550px;
+  height: 120vh;
+  background-image: url("@/assets/img/ui/CyberConnect.webp");
+  background-attachment: fixed;
+  border: 0;
+
+
+.padding-section{
+  padding: 0;
+}
+  h1{
+    color: #131313;
+  }
+
+
+  .flex-row{
+    width: 100%;
+    justify-content: space-between;
+
+    span{
+      font-size: 48px;
+      margin-bottom: 30px;
+      margin-left: 20px;
+      color: #fff;
+      font-weight: 700;
+      text-shadow: 0.5px 2px 5px rgba(0, 0, 0, 0.75);
+    }
+
+  }
+
+  .subtitle-hero{
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 4px 4px 0 #000;
+    background: linear-gradient(to top, #060B66 100%, #085D91 80%);
+    display: inline-block;
+    padding: 8px 30px;
+  }
+
+  #flex-row-propagandas-image{
+    display: flex;
+    gap: 20px;
+  }
+
+  .div-propaganda{
+    padding: 0;
+    margin: 0;
+    gap: 0;
+    display: block;
+    position: relative;
+    width: 212px;
+    height: auto;
+
+    & img{
+      background: none;
+      width: 100%;
+      height: auto;
+      box-shadow: -5px 5px 50px #dddddd;
+    }
+  }
+
+  #propaganda-master{
+    z-index: 999999999999999;
+  }
+  .hero-image{
+    width: 385px;
+    height: 369px;
+    & img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .container-image{
+    margin-top: 20px;
+  }
+
+  #computer{
+      & .container-image {
+        width: 530px;
+        height: auto;
+      }
+  }
+
+  #confira-ofertas{
+    margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #D00404 0%, #6A0202 100%);
+    box-shadow: 0 0 20px #05A7DD;
+    box-shadow: 0 5 40px #72DCFF;
+    cursor: pointer;
+    transition: ease 0.1s;
+
+      & img {
+        height: 40px;
+        width: 40px;
+      }
+
+    &:hover{
+      background: #05A7DD;
+      color: #dddddd;
+      text-shadow: 1px 1px 1px #0051ff;
+      box-shadow: 0 0 20px #0051ff,
+                  0 0 50px #0051ff;
+    }
+  }
 }
 
+/* --------------------- SESSÃO Produtos ------------------- */
+.products{
+  width: 100%;
+  min-height: 100vh;
+
+}
+.info-products{
+  background: #000;
+
+  .div-title-products{
+    min-height: 60px;
+    width: 90%;
+    padding: 0 40px;
+    margin: 0 auto;
+    justify-content: space-between;
+    background: linear-gradient(to top, #060B66 100%, #085D91 80%);
+    border-radius: 8px;
+  }
+
+  h2{
+    position: relative;
+    font-family: variables.$font-secondary;
+    color: #dddddd;
+  }
+
+  h2::after{
+    padding: 0;
+    content: "";
+    position: absolute;
+    right: -140px;
+    bottom: 0;
+    height: 50px;
+    width: 4px;
+    background: #05A7DD;
+  }
+
+.div-icon-Information {
+  gap: 50px;
+
+  & .div-items {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+
+    & h3{
+      margin-top:8px;
+      color: #fff;
+    }
+    & svg{
+      font-size: 40px;
+      padding: 5px;
+      color: #00d4ff;
+      box-shadow: 1px 1px 10px #0051ff,
+                  1px 1px 20px #0051ff;
+    }
+    border-radius: 10px;
+    margin: 2px 0;
+  }
+
+}
+
+}

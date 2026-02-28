@@ -1,1 +1,127 @@
-@use 'global';
+@use "./global";
+@use "./variables" as v;
+
+/* ----------------- CONFIGURAÇÕES DE PÁGINAS GLOBAIS --------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; // Garante que bordas não aumentem o tamanho dos elementos
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #0051ff;
+
+  // Garante que o texto e elementos herdem a melhor renderização
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  /* Aqui é o segredo */
+  max-width: 1536px;
+  margin: 0 auto;    // Centraliza o React no meio do monitor ultra-wide
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.space{
+  height: 205px;
+}
+
+/* ----------------------- Configurações reutilizáveis de flexbox  ---------------------- */
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------  CONFIGURAÇÕES GLOBAIS DE CONTAINER ------- */
+.container-section{
+  padding-left: 30px;
+}
+
+
+/* ------------------  CONFIGURAÇÕES GLOBAIS DE TEXTOS --------------------------- */
+
+.title{
+  font-size: 48px;
+  /* Aplica o gradiente como fundo */
+  background: var(--main-color);
+  /* Faz o fundo aparecer apenas onde tem texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Deixa o preenchimento do texto transparente para o fundo aparecer */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25))
+               drop-shadow(0 4px 18px rgba(0, 0, 0, 0.70));
+}
+
+
+.neon-blue-line {
+  width: 100%;
+  height: 4px;                /* Um pouco mais espessa para sustentar o brilho */
+  position: relative;
+  border: none;
+
+  /* 1. O NÚCLEO ELÉTRICO: Branco puro no centro para simular calor/energia */
+  background: linear-gradient(
+                  90deg,
+                  transparent 0%,    /* Começa invisível */
+                  #0051ff 10%,       /* Surge o azul royal */
+                  #00d4ff 50%,       /* Brilha no ciano elétrico no meio */
+                  #0051ff 90%,       /* Volta para o azul royal */
+                  transparent 100%   /* Termina invisível */
+  );
+
+  /* 2. O GLOW (BRILHO) ACUMULATIVO: Aqui é onde o azul elétrico "nasce" */
+  box-shadow:
+          0 0 5px #fff,               /* Brilho branco para nitidez */
+          0 0 15px #00d4ff,           /* Azul Ciano Elétrico (Saturação alta) */
+          0 0 30px #00d4ff,           /* Camada de reforço */
+          0 0 60px #0051ff,           /* Azul Royal para dar profundidade nas bordas */
+          0 0 100px #00d4ff;          /* Aura final que ilumina o fundo */
+
+  /* 3. EFEITO DE LENTE (FLARE): O clarão que você viu na imagem original */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10%;                 /* O clarão central ocupa quase metade da linha */
+    height: 10px;               /* Mais alto que a linha para expandir o azul */
+    background: #00d4ff;
+    filter: blur(15px);         /* Desfoque alto para criar a névoa elétrica */
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  animation: pulse 0.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(5, 167, 221, 0.8), 0 0 20px rgba(114, 220, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    /* Aumentamos o 'blur' (terceiro valor) para simular o espalhamento */
+    box-shadow: 0 0 20px rgba(5, 167, 221, 0.9), 0 0 35px rgba(114, 220, 255, 0.6);
+  }
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(5, 167, 221, 0.8), 0 0 20px rgba(114, 220, 255, 0.4);
+  }
+}
+

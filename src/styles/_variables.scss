@@ -1,17 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700&display=swap');
- :root{
+
+ :root {
   --bg-dark: #080808;
   --light-bg-dark: #131313;
-  --main-color: #00ffee;
+  --main-color: linear-gradient(to right, #05A7DD 0%, #72DCFF 100%);
   --primary-color: #dddddd;
-}
+ }
 
 // Mapeamento no SASS, caso precise alterar algo via JS
 $bg-dark: var(--bg-dark);
 $light-bg-dark: var(--light-bg-dark);
 $main-color: var(--main-color);
 $primary-color: var(--primary-color);
-
-
 $font-main: "Montserrat", sans-serif;
 $font-secondary: "Poppins", sans-serif;
+$header-height: 25px;
+$content-gap: 20px; // Um respiro extra para o conteúdo não grudar no header
+$header-height: 210px;  //espaçamento após o header que está em posição fixa.
+
+.bolder{
+ font-weight: 700;
+}
+
+.glow{
+ text-shadow: 1px 1px 10px #fff;
+}
+
+.active{
+ background: var(--main-color);
+ -webkit-background-clip: text;
+ background-clip: text;
+ -webkit-text-fill-color: transparent;
+ color: transparent;
+ filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25))
+ drop-shadow(0 4px 18px rgba(0, 0, 0, 0.70));
+ text-shadow: 0 0 0.1px #00d4ff,
+              0 0 0.5px #00d4ff,
+              0 0 15px #0051ff;
+
+}
