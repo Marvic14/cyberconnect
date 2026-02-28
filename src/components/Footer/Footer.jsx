@@ -8,9 +8,10 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-container">
-                {/* Coluna 1: Branding e Propósito */}
                 <div className="footer-section brand">
+                    <div className="footer-logo-div">
                     <img src={Logo} className="footer-logo" alt=""/>
+                    </div>
                     <p>Construindo o futuro da web com precisão<br/> técnica e design disruptivo.</p>
                     <div className="social-links">
                         {/* Espaço para ícones sociais no futuro */}

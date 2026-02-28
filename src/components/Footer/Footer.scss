@@ -1,22 +1,23 @@
 @use "@/styles/variables" as v;
 
 .footer {
+  text-align: center;
   width: 100%;
   background-color: #000;
   color: #e0e0e0;
-  padding: 80px 0 40px 0; // Mais respiro no topo e base
+  padding:30px 0 30px 0; // Mais respiro no topo e base
   margin-top: auto;
   border-top: 1px solid #111;
 
   .footer-container {
-    max-width: 1550px; // Sua régua mestre
+    max-width: 1550px;
     margin: 0 auto;
-    padding: 0 50px;   // ISSO resolve o texto colado no canto
+    display: flex;
+    flex-direction: row;
+    text-align: center;
 
-    display: grid;
-    // Ajustei as colunas: a primeira é maior para a bio, as outras são iguais
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px; // Mais espaço entre as colunas para não amontoar
+
+
 
     @media (max-width: 1100px) {
       grid-template-columns: 1fr 1fr; // Quebra em 2x2 para tablets
@@ -25,13 +26,15 @@
   }
 
   .footer-section {
+    margin: 0 auto;
+
     h4 {
-      font-family: v.$font-main;
+      font-family: v.$font-secondary;
       font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       color: #ffffff;
       opacity: 0.9;
     }
@@ -54,13 +57,12 @@
 
         .icon {
           // O SEGREDO: Uma largura fixa garante que o texto comece sempre no mesmo lugar
-          width: 24px;
+          width: 40px;
           min-width: 24px;
-          margin-right: 12px;
-
+          height: auto;
           display: flex;
+          flex-direction: column;
           justify-content: center; // Centraliza o desenho do ícone dentro do quadrado de 24px
-          font-size: 1.1rem;
           color: #555;
         }
 
@@ -81,12 +83,15 @@
       }
     }
 
-    .footer-logo {
-      font-size: 1.8rem;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
-      color: #fff;
-      span { color: #444; }
+    .footer-logo-div {
+      position: relative;
+      width: 220px;
+      height: auto;
+
+      & img{
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
