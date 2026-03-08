@@ -6,33 +6,55 @@ import { FaHome } from "react-icons/fa";
 import { IoTicket } from "react-icons/io5";
 import { FaHeadphones } from "react-icons/fa";
 import { IoIosContacts } from "react-icons/io";
+import {useMobileMenu } from "@/hooks/useMobileMenu";
+import {FaBars, FaTimes} from "react-icons/fa";
+import { createPortal } from 'react-dom';
 
 export default function Header(){
+    const { menuAtivo, toggleMenu } = useMobileMenu();
     return (
-        <header className="header">
-            <div className="header-container">
-                <div className="logo-div">
-                    <img src={Logo} alt="logo da Cyber Connect"/>
+        <>
+            <header className="header">
+                <div className="header-container">
+                    <div className="logo-div">
+                        <img src={Logo} alt="logo da Cyber Connect"/>
+                    </div>
+                    <nav className="menu">
+                        <ul className="nav">
+                            <li className="nav-item"><Link to={"/"} className="bolder active"><FaHome/> Início</Link></li>
+                            <li className="nav-item"><Link to={"/products"} className="bolder"><IoTicket/>Ofertas</Link></li>
+                            <li className="nav-item"><Link to={"contacts"} className="bolder"><FaHeadphones/>Contatos</Link></li>
+                            <li className="nav-item"><Link to={"/about"} className="bolder"><IoIosContacts/>Quem Somos</Link></li>
+                        </ul>
+                        <div className="neon-blue-line"></div>
+                    </nav>
+                    <div className="header-button-div">
+                        <button className="btn-whatsapp">
+                            <div className="div-whatsapp-btn">
+                            <img src={IconeWhatsApp} alt="Ícone do WhatsApp"/>
+                            </div>
+                            <span className="glow">Grupo</span><br/>
+                            <span className="bolder">WhatsApp</span>
+                        </button>
+                    </div>
                 </div>
-                <nav className="menu">
+            </header>
+            <button className="menu-toggle" onClick={toggleMenu}>
+                {menuAtivo ? <FaTimes className="mobile-icon"/> : <FaBars className="mobile-icon"/>}
+            </button>
+            {/* O Portal joga o menu para fora da estrutura animada */}
+            {menuAtivo && createPortal(
+                <nav className="mobile-menu active">
                     <ul className="nav">
-                        <li className="nav-item"><Link to={"/"} className="bolder active"><FaHome/> Início</Link></li>
-                        <li className="nav-item"><Link to={"/products"} className="bolder"><IoTicket/>Ofertas</Link></li>
-                        <li className="nav-item"><Link to={"contacts"} className="bolder"><FaHeadphones/>Contatos</Link></li>
-                        <li className="nav-item"><Link to={"/about"} className="bolder"><IoIosContacts/>Quem Somos</Link></li>
+                        <li><Link to={"/homepage"}>Início</Link></li>
+                        <li><Link to={"/products"}>Produtos</Link></li>
+                        <li><Link to={"/about"}>Quem Somos</Link></li>
+                        <li><Link to={"/contacts"}>Contatos</Link></li>
                     </ul>
-                    <div className="neon-blue-line"></div>
-                </nav>
-                <div className="header-button-div">
-                    <button className="btn-whatsapp">
-                        <div className="div-whatsapp-btn">
-                        <img src={IconeWhatsApp} alt="Ícone do WhatsApp"/>
-                        </div>
-                        <span className="glow">Grupo</span><br/>
-                        <span className="bolder">WhatsApp</span>
-                    </button>
-                </div>
-            </div>
-        </header>
+                </nav>,
+                document.body
+            )}
+
+        </>
     )
 }

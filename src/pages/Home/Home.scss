@@ -11,17 +11,13 @@
   border: 0;
 
 
-.padding-section{
-  padding: 0;
-}
+
+  .padding-section{
+    padding: 0;
+  }
   h1{
     color: #131313;
   }
-
-
-  .flex-row{
-    width: 100%;
-    justify-content: space-between;
 
     span{
       font-size: 48px;
@@ -32,6 +28,17 @@
       text-shadow: 0.5px 2px 5px rgba(0, 0, 0, 0.75);
     }
 
+  }
+
+.container-hero-content{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+  .div-hero-content *{
+    font-family: variables.$font-main;
   }
 
   .subtitle-hero{
@@ -110,18 +117,19 @@
       background: #4c0202;
     }
   }
-}
 
 .precategoria{
   display: flex;
   .subtitle-products{
+    position: relative;
+    top: -30px;
     display: inline-block;
     margin: 0 auto;
     background-color: #ac065e;
     padding: 10px 20px;
     color: #fff;
     font-family: variables.$font-main;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 }
 
@@ -138,18 +146,22 @@
   flex-direction: column;
   justify-content: space-between;
 
+
+
 }
 
 .info-products{
     background: #000;
     .div-title-products{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       min-height: 60px;
       width: 100%;
       padding: 0 40px;
       margin: 0 auto;
       justify-content: space-between;
       background: linear-gradient(to top, #060B66 100%, #085D91 80%);
-      border-radius: 8px;
     }
 
     h2{
@@ -171,27 +183,23 @@
 
   .div-icon-Information {
     gap: 50px;
+    display: flex;
+    flex-direction: row;
 
     & .div-items {
+      display: flex;
+      flex-direction: column;
+
       position: relative;
       justify-content: center;
       align-items: center;
       padding: 10px 20px;
+      font-family: variables.$font-secondary;
 
       & h3{
-        margin-top:8px;
         color: #fff;
       }
-      & svg{
-        font-size: 45px;
-        padding: 10px;
-        color: #00d4ff;
-        box-shadow: 1px 1px 10px #0051ff,
-                    1px 1px 20px #0051ff;
 
-        border-radius: 50%;
-        margin: 2px 0;
-      }
     }
 
   }
@@ -200,31 +208,42 @@
 
 /*  --------------- SESSÃO DAS CATEGORIAS  --------------------------- */
 .categorias{
+  display: flex;
   font-family: variables.$font-secondary;
     position: relative;
+
     .div-items-categorias{
+      display: flex;
+      flex-direction: row;
       position: absolute;
-      top: -80px;
+      top: -80px; //para ficar levemente acima do efeito espelho embaixo (proposital)
       width: 100%;
-      margin-left: 10px;
+      margin-left: 10px; //respiro lateral
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 40px; //espaçamento lateral de cada div-item
     }
-    .div-item{
+
+   /* Dimensões do fundo das imagem dos produtos de cada categoria */
+  .div-item{
+      display: flex;
+      flex-direction: column;
       position: relative;
-      width: 236.96px;
+      width: 236.96px;  //Larguras e alturas padronizados para manter proporcionalidade.
       height: 198.18px;
       background: linear-gradient(to bottom, #748DC2 0%,  #fff 100%);
       border-radius: 30px;
-      justify-content: space-between;
+      cursor: pointer;
+      transition: ease 0.1s;
 
+
+      /* Efeito espelhado embaixo */
       &::after{
         content: "";
         position: absolute;
         bottom: -120px;
         left: 0;
-        height: 120px;
+        height: 60%;
         width: 236px;
         background: linear-gradient(rgba(48, 52, 130, 0.5), rgba(166, 33,133, 0.5));
         border-radius: 10px;
@@ -234,9 +253,15 @@
       h3{
         display: inline-block;
         text-align: center;
+        color: #131313;
+        text-shadow: 1px 1px 5px #ffffff;
       }
 
       .orange{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
         height: 10px;
         background-color: orange;
         width: 80px;
@@ -245,17 +270,36 @@
 
       .div-image-products{
         position: relative;
-        width: 250px;
-        height: 80px;
+        width: 100%;
+        height: 120px; /* Altura fixa para manter o alinhamento */
+        display: flex;
+        justify-content: center;
 
         & img{
-          position: absolute;
-          top: -50px;
-          width: 100%;
+          /* Remove o top: -50px, use margin-top para empurrar para fora */
+          position: relative;
+          width: 90%; /* Ajuste o tamanho para ser relativo */
           height: auto;
+          object-fit: contain;
+          /* Isso garante que a imagem "flutue" para cima a partir da linha de base do container */
         }
     }
 
+  }
+
+  .div-item:hover{
+    transform: scale(1.2);
+    z-index: 9999;
+    box-shadow: 1px 1px 10px #0051ff,
+                1px 1px 20px #05A7DD;
+
+    &::after{
+      bottom: -90px;
+      height: 45%;
+      width: 230px;
+      margin: 0 auto;
+      background: linear-gradient(rgba(22, 31, 189, 0.5), rgba(188, 9, 144, 0.5));
+    }
   }
 
   .div-image{
@@ -302,7 +346,17 @@
     flex-direction: column;
     gap: 50px;
     text-align: center;
+    align-items: center;
 
+    .div-image{
+      width: 500px;
+      height: auto;
+
+      & img{
+        width: 100%;
+        height: auto;
+      }
+    }
     & .text-principal{
       background: rgba(48,52,130,0.74);
       border-radius: 20px;
@@ -325,10 +379,11 @@
   }
   /* ------ Configurações do botão do WhatsApp -----------*/
   .button-div {
+    top: 0;
     position: relative;
-    display: flex;
     margin: 0 auto;
 
+    /* Imagem icone whatsapp */
     .div-whatsapp-btn {
       position: absolute;
       display: inline-block;
@@ -377,6 +432,7 @@
       }
     }
 
+    /* -------- HOVER --------------*/
     & .btn-whatsapp:hover {
       box-shadow: inset 4px 8px 14px rgb(6, 205, 65),
                         1px 1px 10px rgb(13, 255, 83);
@@ -385,6 +441,181 @@
       & span {
         color: #fff;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .container-section {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .home-page {
+    padding-top: 170px;
+    height: auto;
+    background-size: cover;
+    background-attachment: scroll;
+
+    .div-hero-content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 40px;
+      h1, span { font-size: 40px; }
+      .subtitle-hero {
+        font-size: 25px;
+        margin: 20px auto;
+        width: 100%;
+        display: block;
+        background: #0f1130;
+        border-radius: 10px;
+        color: #fff;
+        text-shadow: 1px 1px 5px #000;
+      }
+      img { width: 200px; }
+    }
+
+    .container-hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    #computer {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .bot-gift { display: none; }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    #computer .container-image {
+      width: 90% !important;
+      max-width: 350px;
+      margin: 0 auto !important;
+    }
+
+    #flex-row-propagandas-image {
+      position: relative;
+      width: 100%;
+      height: auto;
+      gap: 10px;
+      transition: 1s;
+      & img { width: 100%; height: auto; }
+      &:hover img {
+        transform: scale(1.1);
+        box-shadow: 2px 2px 4px #0051ff;
+        border-radius: 4px;
+      }
+    }
+
+    #confira-ofertas {
+      position: relative;
+      margin-left: 20px;
+      margin-right: 20px;
+      top: -10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+  }
+
+  .products {
+    height: auto;
+    padding: 20px;
+    .info-products .div-title-products {
+      display: none;
+    }
+
+    .precategoria .subtitle-products{
+      font-size: 15px !important;
+      margin: 20px 0 0 0;
+    }
+
+    .categorias {
+      background-image: url("@/assets/img/ui/base-categories.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100%;
+
+      /* Esconde a grade desktop, mas mantém o container-pai limpo */
+      .div-items-categorias {
+        display: none !important;
+      }
+    }
+
+    #baseFundo {
+      display: none !important;
+    }
+  }
+
+  /* --- CONFIGURAÇÃO DO SWIPER (MOBILE) - CORRIGIDA --- */
+  .categoria-swiper {
+    width: 100% !important;
+    height: auto;
+    display: block !important;
+    position: relative;
+    z-index: 9999;
+
+    .div-item {
+      min-width: 236.96px !important;
+      height: 500px !important;
+
+
+      .div-image-products {
+        height: auto !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: visible !important;
+
+        & img {
+          display: block;
+          z-index: 9999999999999999999999;
+          margin-top: -70px !important;
+          width: 90% !important;
+          height: auto !important;
+          object-fit: contain !important;
+          filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.2));
+        }
+      }
+    }
+
+  }
+  .div-item:hover{
+    transform: none !important;
+  }
+
+  .section-whatsapp{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around  !important;
+    gap: 1px !important;
+    align-items: center;
+
+    & #mulher{
+      display: none;
     }
   }
 }

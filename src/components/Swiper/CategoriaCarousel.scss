@@ -1,0 +1,57 @@
+/* --- ESTILO EXCLUSIVO DO CARROSSEL MOBILE --- */
+.categoria-swiper {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  padding: 50px 0 60px 0;
+
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .div-item {
+    width: 236.96px !important;
+    height: 198.18px !important;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #748DC2 0%, #fff 100%);
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  /* --- CUSTOMIZAÇÃO DOS BOTÕES DO SWIPER --- */
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    z-index: 10 !important; // Garantir que fiquem acima de tudo
+    color: #fff !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+
+    &::after {
+      font-size: 20px !important;
+    }
+  }
+
+  /* Cores e posição dos pontinhos de paginação */
+  .swiper-pagination {
+    bottom: 5px !important; // Ajuste para ficar dentro da seção
+    z-index: 10 !important; // Garantir visibilidade
+  }
+
+  .swiper-pagination-bullet {
+    background: #fff !important;
+    opacity: 0.8 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: orange !important;
+    opacity: 1 !important;
+  }
+}

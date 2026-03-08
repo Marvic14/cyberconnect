@@ -10,12 +10,23 @@
   background-color: rgba(0, 0, 0, 0.2);
   position: absolute;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 0!important;
   font-family: variables.$font-secondary;
   min-height: 60px;
   box-shadow: 0 0.5px 0 #131313;
   display: flex;
   justify-content: center;
+
+
+}
+/* Esconde o botão em telas grandes */
+.menu-toggle {
+  display: none; // Desktop: escondido
+  position: absolute;
+  top: 45px;
+  right: 15px; // Posiciona no canto superior direito (padrão de menu mobile)
+  z-index: 1000;
+  transition: ease 0.2s;
 }
 
 .logo-div{
@@ -131,5 +142,124 @@
       transform: scale(1.05);
     }
   }
+}
+
+@media (max-width: 780px) {
+  .header {
+    min-height: 40px;
+  }
+
+  .menu-toggle {
+    display: block; /* Aparece apenas no mobile */
+    border: none;
+    cursor: pointer;
+    /* Adicione um z-index se ele estiver brigando com outros itens */
+    z-index: 100;
+
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .header-button-div{
+    display: none;
+  }
+
+  .header {
+
+    margin: 0;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .header-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .mobile-icon {
+    display: block;
+    color: #fff;
+    background-color: variables.$bg-dark;
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+
+  /* ---------------------------- CONFIGURAÇÕES ASIDE MENU ------------------------- */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #000 !important;
+    color: #05A7DD !important;
+    font-family: variables.$font-secondary;
+    position: absolute;
+    top: 14.1vh;
+    left: 0;
+    width: 15rem;
+    box-shadow: 1px 1px 10px variables.$bg-dark;
+    border-radius: 0 10px 10px 0;
+    /* Logica de esconder */
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.5s ease, visibility 0.5s !important;
+
+    /* Quando estiver ativo */
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    & ul {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+
+      & li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 0.5px solid variables.$primary-color;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        & a {
+          display: block;
+          width: 100%;
+          padding: 55px 0;
+          text-decoration: none;
+          font-size: 20px;
+          color: var(--primary-color);
+          text-align: center;
+          font-weight: bold;
+          text-shadow: 0 0 8px rgba(251, 146, 60, 0.5);
+          transition: background 0.3s;
+
+          &:active {
+            background-color: rgba(251, 146, 60, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  /* ----- CONSERTANDO BUG DE OPACIDADE DO MENU QUE ME CUSTOU HORAS -_- */
+  .mobile-menu.active {
+    background-image: none !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: border-box !important;
+  }
+
 
 }
+
