@@ -167,9 +167,7 @@
   }
 
   .header {
-
     margin: 0;
-    padding: 0 15px;
     display: flex;
     justify-content: space-between;
 
@@ -177,7 +175,7 @@
 
   .header-container {
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     width: 100%;
   }
 
@@ -185,8 +183,10 @@
     display: block;
     color: #fff;
     background-color: variables.$bg-dark;
-    font-size: 28px;
+    font-size: 35px;
     font-weight: bold;
+    padding-right: 10px;
+
 
   }
 
@@ -205,13 +205,11 @@
     border-radius: 0 10px 10px 0;
     /* Logica de esconder */
     transform: translateX(-100%);
-    visibility: hidden;
-    transition: transform 0.5s ease, visibility 0.5s !important;
+    transition: transform 1s ease-in-out !important;
 
     /* Quando estiver ativo */
     &.active {
       transform: translateX(0);
-      visibility: visible;
     }
 
     & ul {

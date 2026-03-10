@@ -5,11 +5,18 @@
   padding-top: 140px;
   font-family: variables.$font-secondary;
   max-width: 1550px;
-  height: 120vh;
+  height: auto;
   background-image: url("@/assets/img/ui/CyberConnect.webp");
+  background-repeat: no-repeat;
   background-attachment: fixed;
   border: 0;
+  padding-bottom: 20px;
 
+ img{
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+ }
 
 
   .padding-section{
@@ -17,6 +24,7 @@
   }
   h1{
     color: #131313;
+    margin-top: 20px;
   }
 
     span{
@@ -37,8 +45,17 @@
   justify-content: space-between;
 }
 
+
   .div-hero-content *{
     font-family: variables.$font-main;
+  }
+  .div-hero-content{
+    .container-image {
+      padding: 10px 0;
+      & img {
+        border-radius: 20px;
+      }
+    }
   }
 
   .subtitle-hero{
@@ -53,7 +70,7 @@
 
   #flex-row-propagandas-image{
     display: flex;
-    gap: 18px;
+    gap: 12px;
   }
 
   .div-propaganda{
@@ -69,6 +86,7 @@
       background: none;
       width: 100%;
       height: auto;
+
 
     }
   }
@@ -138,7 +156,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url("@/assets/img/ui/product-background-futurist.png");
+  background-image: url("@/assets/img/ui/product-background-futurist.webp");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -316,7 +334,7 @@
 /* ----------------------- Configuração da SECTION WHATSAPP --------------------------- */
 .section-whatsapp{
   width: 100%;
-  height: 80vh;
+  height: auto;
   background-image: url("@/assets/img/banners/background-new.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -324,12 +342,23 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 20px 30px 0 30px;
 
-  /* Config da Imagem da mulher  & MOCKUP CELULAR -------------------*/
+  /* Config da Imagem do MOCKUP CELULAR -------------------*/
   & .div-image{
     position: relative;
-    width: auto;
+    width: 250px;
+    height: auto;
+
+    & img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  & .div-image-woman{
+    position: relative;
+    width: 400px;
     height: auto;
 
     & img{
@@ -341,16 +370,17 @@
   /* CONFIGURAÇÃO DA COLUNA DO MEIO DO CONTEÚDO */
   .infos-about-whatsapp-group{
     font-family: variables.$font-secondary;
-    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     text-align: center;
-    align-items: center;
+    justify-content: center;
 
     .div-image{
-      width: 500px;
+      max-width: 500px;
+      width: 300px;
       height: auto;
+      margin: 0 auto;
 
       & img{
         width: 100%;
@@ -382,7 +412,6 @@
     top: 0;
     position: relative;
     margin: 0 auto;
-
     /* Imagem icone whatsapp */
     .div-whatsapp-btn {
       position: absolute;
@@ -451,18 +480,24 @@
     margin-left: 0 !important;
   }
 
+  /* ---------------- CONFIGURAÇÕES DA HOMEPAGE ------------------- */
   .home-page {
     padding-top: 170px;
     height: auto;
     background-size: cover;
     background-attachment: scroll;
+    padding-bottom: 20px;
 
     .div-hero-content {
       width: 100%;
       display: flex;
       justify-content: center;
       padding: 0 40px;
-      h1, span { font-size: 40px; }
+
+      h1, span {
+        font-size: 30px;
+      }
+
       .subtitle-hero {
         font-size: 25px;
         margin: 20px auto;
@@ -473,9 +508,13 @@
         color: #fff;
         text-shadow: 1px 1px 5px #000;
       }
-      img { width: 200px; }
-    }
 
+      img {
+        width: 200px;
+        height: auto;
+        border-radius: 20px;
+        }
+    }
     .container-hero-content {
       display: flex;
       flex-direction: column;
@@ -513,7 +552,6 @@
       position: relative;
       width: 100%;
       height: auto;
-      gap: 10px;
       transition: 1s;
       & img { width: 100%; height: auto; }
       &:hover img {
@@ -527,7 +565,6 @@
       position: relative;
       margin-left: 20px;
       margin-right: 20px;
-      top: -10px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -536,6 +573,7 @@
     }
   }
 
+  /* ---------- CONFIGURANDO A SESSÃO DE PRODUTOS ------------------ */
   .products {
     height: auto;
     padding: 20px;
@@ -545,7 +583,8 @@
 
     .precategoria .subtitle-products{
       font-size: 15px !important;
-      margin: 20px 0 0 0;
+      width: 100% !important;
+      display: block !important;
     }
 
     .categorias {
@@ -604,18 +643,35 @@
   }
 
   .section-whatsapp{
-    margin: 0;
-    padding: 0;
+    padding: 20px 0;
     width: 100%;
-    min-height: 200vh;
+    min-height: 18 0vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around  !important;
     gap: 1px !important;
     align-items: center;
 
+    & img{
+      width: 100%;
+      height: auto;
+    }
     & #mulher{
       display: none;
+    }
+
+    .div-image{
+      width: 80%;
+      height: auto;
+    }
+
+    .infos-about-whatsapp-group{
+      margin-bottom: 20px;
+      & .text-principal{
+        margin: 0;
+        font-size: 20px;
+        border-radius: 0;
+        padding: 5px 10px;
+      }
     }
   }
 }

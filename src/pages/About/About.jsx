@@ -1,12 +1,35 @@
 import "./About.scss";
 import AnimatedPage from "@/components/AnimatedPage/AnimatedPage";
+import RoboMascote from "@/assets/img/ui/robo-circular.webp"
+import BandeiraBrasil from "@/assets/img/ui/bandeira-brasil.webp"
 
 export default function About(){
     return (
         <AnimatedPage>
             <main className="about-page">
-                <h1>Sobre nós</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, eum explicabo laboriosam minus, mollitia neque officia quia quisquam, reiciendis saepe sed voluptas! Adipisci beatae culpa ea obcaecati, repellat reprehenderit voluptate!</h2>
+                <section className="quem-somos">
+                    <div className="container">
+                        <h1>Quem Somos</h1>
+                        <div className="container-image">
+                            <img src={RoboMascote} alt="Robo Mascote da CyberConnect"/>
+                        </div>
+                        <div className="conteudo-box">
+                            <p>
+                                Bem-vindo à <strong>Cyber Connect</strong>. Somos apaixonados por tecnologia e inovação.
+                                Nosso objetivo é conectar você às melhores ofertas do mercado,
+                                trazendo curadoria, transparência e qualidade em cada recomendação.
+                            </p>
+                            <p>
+                                Acreditamos que a tecnologia deve ser acessível e facilitar o seu dia a dia.
+                                Por isso, trabalhamos incansavelmente para filtrar o que há de melhor no ecossistema
+                                do e-commerces nacional.
+                            </p>
+                            <div className="div-image">
+                                <img src={BandeiraBrasil} alt="bandeira do Brasil - Nossos negócios atualmente se concentram fortemente no Brasil"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </AnimatedPage>
     )

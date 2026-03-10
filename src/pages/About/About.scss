@@ -4,12 +4,73 @@
   padding-top: variables.$header-height;
   font-family: variables.$font-main;
   max-width: 1550px;
-  height: 640px;
+  height: auto;
   background-image: url("@/assets/img/ui/CyberConnect.webp");
+  background-repeat: no-repeat;
   background-attachment: fixed;
 
   h1{
     color: #131313;
+  }
+  .quem-somos {
+    background: linear-gradient(180deg, #020a1f 0%, #0a192f 100%);
+    color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container-image{
+    padding: 0;
+    margin: 10px auto;
+    width: 200px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+    & img{
+      margin: 0 auto;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .quem-somos h1 {
+    font-size: 3rem;
+    background: linear-gradient(to right, #00d2ff, #3a7bd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .conteudo-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
+
+  .quem-somos p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #cccccc;
+  }
+}
+
+@media screen and (max-width:780px) {
+  .conteudo-box {
+    .div-image {
+      width: 100%;
+      box-shadow: 1px 1px 10px #05A7DD;
+
+      & img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }
 

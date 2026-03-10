@@ -6,6 +6,7 @@
   max-width: 1550px;
   min-height: 100vh;
   background-image: url("@/assets/img/ui/CyberConnect.webp");
+  background-repeat: no-repeat;
   background-attachment: fixed;
   padding-left: 80px;
   padding-bottom: 80px;
@@ -165,6 +166,45 @@
       &:focus {
         box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
         border-color: #fff;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .products-page {
+
+    padding-left: 15px;  // Reduz o recuo lateral no mobile
+    padding-right: 15px;
+    padding-top: 160px;  // Ajuste conforme a altura do seu header mobile
+
+    .title-products {
+      font-size: 28px;   // Título menor para caber em uma linha
+    }
+
+    .products-grid {
+      gap: 20px;         // Diminui o espaço entre cards no mobile
+      padding: 10px 0;
+    }
+
+    .product-card {
+      width: 100%;       // O card ocupa a largura total disponível
+      max-width: 350px;  // Mas não deixa ele ficar gigante em tablets pequenos
+
+      .container-image {
+        height: 300px;   // Reduz a altura da imagem para não ocupar a tela toda
+      }
+    }
+
+    .search-container {
+      max-width: 90%;    // Barra de busca quase na largura total
+    }
+
+    .filter-bar {
+      gap: 8px;          // Botões de filtro mais próximos
+
+      .filter-btn {
+        padding: 6px 15px; // Botões levemente menores
+        font-size: 11px;
       }
     }
   }

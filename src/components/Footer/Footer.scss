@@ -1,6 +1,7 @@
 @use "@/styles/variables" as v;
 
 .footer {
+  display: block;
   text-align: center;
   width: 100%;
   background-color: #000;
@@ -16,13 +17,6 @@
     flex-direction: row;
     text-align: center;
 
-
-
-
-    @media (max-width: 1100px) {
-      grid-template-columns: 1fr 1fr; // Quebra em 2x2 para tablets
-      gap: 40px;
-    }
   }
 
   .footer-section {
@@ -112,45 +106,74 @@
 // Mobile: 1 coluna única
 @media (max-width: 768px) {
   .footer {
-    padding: 50px 0 0 0; // Menos espaço no topo no mobile
+    padding: 40px 0 0 0;
 
     .footer-container {
-      // O SEGREDO: Usar 2 colunas no mobile deixa o footer menos longo e mais elegante
-      grid-template-columns: 1fr 1fr;
-      gap: 40px 20px;
-      padding: 0 25px;
-      text-align: left; // Voltamos para a esquerda para alinhar com os ícones
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 0 10px;
+      text-align: center;
 
       .footer-section {
-        // A primeira seção (Logo e Bio) ocupa as duas colunas sozinha
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         &:first-child {
-          grid-column: span 2;
           margin-bottom: 10px;
         }
 
         h4 {
-          font-size: 0.75rem; // Títulos menores para não brigar com o conteúdo
+          font-size: 0.85rem;
           margin-bottom: 15px;
           color: #fff;
         }
 
-        ul li {
-          justify-content: flex-start; // Garante alinhamento à esquerda
-          margin-bottom: 10px;
+        ul {
+          padding: 0;
+          width: 100%;
 
-          .icon {
-            width: 20px;
-            min-width: 20px;
-            font-size: 1rem;
-          }
+          li {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            width: 100%;
 
-          a {
-            font-size: 0.85rem;
+            a {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 8px;
+              text-decoration: none;
+              color: #999;
+              transition: 0.3s;
+
+              &:hover {
+                color: #00f2ff;
+              }
+
+              .icon {
+                font-size: 1.8rem;
+                color: #555;
+                display: flex;
+                justify-content: center;
+              }
+
+              span {
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+              }
+            }
           }
         }
       }
-    }
+    } // Fim do .footer-container
 
+    // .footer-bottom deve estar aqui (dentro de .footer, mas fora de .footer-container)
     .footer-bottom {
       margin-top: 40px;
       padding: 20px;
@@ -158,7 +181,8 @@
       .bottom-content {
         font-size: 0.7rem;
         opacity: 0.6;
+        text-align: center;
       }
     }
-  }
+  } // Fim do .footer
 }

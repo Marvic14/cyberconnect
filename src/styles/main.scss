@@ -12,7 +12,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: #0051ff;
 
   // Garante que o texto e elementos herdem a melhor renderização
   -webkit-font-smoothing: antialiased;
@@ -92,7 +91,7 @@ body {
           0 0 60px #0051ff,           /* Azul Royal para dar profundidade nas bordas */
           0 0 100px #00d4ff;          /* Aura final que ilumina o fundo */
 
-  /* 3. EFEITO DE LENTE (FLARE): O clarão que você viu na imagem original */
+  /* 3. EFEITO DE LENTE (FLARE) */
   &::after {
     content: '';
     position: absolute;
