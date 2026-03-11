@@ -98,7 +98,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="neon-blue-line"></div>
+                    <div className="neon-blue-line" id="neon-desativado-mobile"></div>
                 </section>
 
                 <div className="precategoria">

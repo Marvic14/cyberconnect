@@ -3,13 +3,14 @@ import { client } from "@/sanity";
 import "./Products.scss";
 import AnimatedPage from "@/components/AnimatedPage/AnimatedPage";
 import ProductCard from "@/components/ProductCard/ProductCard";
+import { FaSearch } from "react-icons/fa";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    // 1. Estado para controlar qual categoria está ativa
     const [categoriaAtiva, setCategoriaAtiva] = useState("todos");
     const [termoBusca, setTermoBusca] = useState("");
+    const [menuAberto, setMenuAberto] = useState(false); // Estado movido para o local correto
 
     useEffect(() => {
         const query = `*[_type == "produto"]{
@@ -27,31 +28,19 @@ export default function Products() {
             });
     }, []);
 
-    {/*}  // 2. Lógica de filtragem: Se for "todos", mostra tudo. Se não, filtra pela categoria.
-    const produtosFiltrados = categoriaAtiva === "todos"
-        ? products
-        : products.filter(p => {
-            // Verifica se a categoria existe e compara ignorando espaços/maiusculas
-            return p.categoria?.trim().toLowerCase() === categoriaAtiva.trim().toLowerCase();
-        });
-*/}
     const produtosFiltrados = products.filter(p => {
-        // 1. Filtro de Categoria (Igual ao que já temos)
+        // 1. Filtro de Categoria
         const bateCategoria = categoriaAtiva === "todos" || p.categoria === categoriaAtiva;
 
-        // 2. Filtro de Busca "Contém" (Partial Match)
-        const termo = termoBusca.toLowerCase().trim(); // Limpa espaços e padroniza
-
-        // Pegamos o nome e a descrição do produto (caso exista)
+        // 2. Filtro de Busca
+        const termo = termoBusca.toLowerCase().trim();
         const nomeProduto = p.nome?.toLowerCase() || "";
         const descricaoProduto = p.descricao?.toLowerCase() || "";
-
-        // O .includes() faz a mágica do "Contém"
         const bateBusca = nomeProduto.includes(termo) || descricaoProduto.includes(termo);
 
         return bateCategoria && bateBusca;
     });
-    // Lista de categorias (deve bater com os 'value' que você colocou no Sanity)
+
     const categorias = [
         { label: "Todos", value: "todos" },
         { label: "Eletrônicos", value: "eletronicos" },
@@ -65,37 +54,56 @@ export default function Products() {
             <main className="products-page">
                 <h1 className="title-products">Vitrine de Ofertas</h1>
 
-                {/* 3. Barra de Filtros */}
-                <nav className="filter-bar">
-                    {categorias.map((cat) => (
-                        <button
-                            key={cat.value}
-                            className={`filter-btn ${categoriaAtiva === cat.value ? 'ativado' : ''}`}
-                            onClick={() => setCategoriaAtiva(cat.value)}
-                        >
-                            {cat.label}
-                        </button>
-                    ))}
-                </nav>
-                <div className="search-container">
-                    <input
-                        type="text"
-                        placeholder="Pesquisar ventiladores, fones..."
-                        value={termoBusca}
-                        onChange={(e) => setTermoBusca(e.target.value)}
-                        className="search-input"
-                    />
+                {/* Estrutura do Filtro Adaptada para Desktop e Mobile */}
+                <div className={`filter-wrapper ${menuAberto ? 'aberto' : ''}`}>
+                    <button
+                        className="mobile-filter-toggle"
+                        onClick={() => setMenuAberto(!menuAberto)}
+                    >
+                        Filtrar por Categoria
+                        <span className="icon-arrow"></span>
+                    </button>
+
+                    <nav className="filter-bar">
+                        {categorias.map((cat) => (
+                            <label key={cat.value} className="filter-item">
+                                <input
+                                    type="checkbox"
+                                    checked={categoriaAtiva === cat.value}
+                                    onChange={() => {
+                                        setCategoriaAtiva(cat.value);
+                                        // Fecha o menu no mobile após selecionar
+                                        if (window.innerWidth < 768) setMenuAberto(false);
+                                    }}
+                                />
+                                <span className="custom-checkbox"></span>
+                                {cat.label}
+                            </label>
+                        ))}
+                    </nav>
                 </div>
+
+                <div className="search-container">
+                    <div className="search-wrapper">
+                        <FaSearch className="search-icon" />
+                        <input
+                            type="text"
+                            placeholder="Pesquisar ventiladores, fones..."
+                            value={termoBusca}
+                            onChange={(e) => setTermoBusca(e.target.value)}
+                            className="search-input"
+                        />
+                    </div>
+                </div>
+
                 <div className="products-grid">
                     {loading ? (
                         <p className="loading">Carregando catálogo...</p>
                     ) : produtosFiltrados.length > 0 ? (
-                        // Se houver produtos, mostra eles
                         produtosFiltrados.map((item) => (
                             <ProductCard key={item._id} product={item} />
                         ))
                     ) : (
-                        // Se a busca não retornar nada
                         <div className="no-results">
                             <p className="notFound">Nenhum produto encontrado para o termo: "{termoBusca}".</p>
                             <button onClick={() => setTermoBusca("")} className="clear-search">

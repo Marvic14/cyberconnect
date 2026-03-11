@@ -486,7 +486,11 @@
     height: auto;
     background-size: cover;
     background-attachment: scroll;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
+
+    .neon-desativado-mobile{
+      display: none;
+    }
 
     .div-hero-content {
       width: 100%;
@@ -573,27 +577,32 @@
     }
   }
 
+
   /* ---------- CONFIGURANDO A SESSÃO DE PRODUTOS ------------------ */
   .products {
     height: auto;
     padding: 20px;
-    .info-products .div-title-products {
-      display: none;
+    .info-products {
+      #neon-desativado-mobile{
+        display: none !important;
+      }
+      .div-title-products {
+        display: none;
+      }
     }
+    .precategoria {
+      display: flex;
+      width: 100%;
 
-    .precategoria .subtitle-products{
-      font-size: 15px !important;
-      width: 100% !important;
-      display: block !important;
+
+      .subtitle-products {
+        font-size: 15px !important;
+        display: block !important;
+        margin-top: 20px;
+      }
     }
 
     .categorias {
-      background-image: url("@/assets/img/ui/base-categories.webp");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 100%;
-
       /* Esconde a grade desktop, mas mantém o container-pai limpo */
       .div-items-categorias {
         display: none !important;

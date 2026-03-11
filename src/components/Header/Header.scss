@@ -192,15 +192,16 @@
 
   /* ---------------------------- CONFIGURAÇÕES ASIDE MENU ------------------------- */
   .mobile-menu {
+    z-index: 10;
     display: flex;
     flex-direction: column;
-    background-color: #000 !important;
+    background: linear-gradient(#080a47, #08284c) !important;
     color: #05A7DD !important;
     font-family: variables.$font-secondary;
     position: absolute;
     top: 14.1vh;
     left: 0;
-    width: 15rem;
+    width: 16rem;
     box-shadow: 1px 1px 10px variables.$bg-dark;
     border-radius: 0 10px 10px 0;
     /* Logica de esconder */
@@ -253,7 +254,6 @@
 
   /* ----- CONSERTANDO BUG DE OPACIDADE DO MENU QUE ME CUSTOU HORAS -_- */
   .mobile-menu.active {
-    background-image: none !important;
     -webkit-text-fill-color: initial !important;
     background-clip: border-box !important;
   }

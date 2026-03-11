@@ -6,7 +6,7 @@
   width: 100%;
   background-color: #000;
   color: #e0e0e0;
-  padding:30px 0 30px 0; // Mais respiro no topo e base
+  padding: 30px 0 0 0;
   margin-top: auto;
   border-top: 1px solid #111;
 
@@ -15,12 +15,16 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    text-align: center;
-
+    justify-content: space-around; // Distribui as 4 colunas igualmente
+    align-items: flex-start;
   }
 
   .footer-section {
-    margin: 0 auto;
+    flex: 1; // Garante que cada coluna tenha o mesmo espaço
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centraliza o h4 e a ul na coluna
+    margin: 0;
 
     h4 {
       font-family: v.$font-secondary;
@@ -28,7 +32,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       color: #ffffff;
       opacity: 0.9;
     }
@@ -37,52 +41,58 @@
       line-height: 1.6;
       color: #888;
       font-size: 0.95rem;
+      max-width: 250px;
     }
 
     ul {
       list-style: none;
-      padding: 0; // Mata o recuo padrão que está desalinhando com o título
+      padding: 0;
       margin: 0;
+      width: 100%;
 
       li {
         display: flex;
-        align-items: center; // Centraliza o ícone verticalmente com o texto
-        margin-bottom: 12px;
-
-        .icon {
-          // O SEGREDO: Uma largura fixa garante que o texto comece sempre no mesmo lugar
-          width: 40px;
-          min-width: 24px;
-          height: auto;
-          display: flex;
-          flex-direction: column;
-          justify-content: center; // Centraliza o desenho do ícone dentro do quadrado de 24px
-          color: #555;
-        }
+        justify-content: center;
+        margin-bottom: 25px;
 
         a {
+          display: flex;
+          align-items: center;
+          gap: 10px; // Espaço fixo entre ícone e texto
           color: #999;
           text-decoration: none;
-          font-size: 0.9rem;
+          font-size: 0.95rem;
           transition: all 0.3s ease;
-          &.no-icon {
-            margin-left: 36px; // 24px (icon) + 12px (gap)
 
-            &:hover {
-              color: #fff;
-              .icon { color: #fff; } // Ícone acende junto com o link
-            }
+
+          .icon {
+            width: 24px;
+            display: flex;
+            justify-content: center;
+            color: #4e5c7e;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+          }
+
+          &:hover {
+            color: #00f2ff;
+            .icon { color: #00f2ff; }
+            transform: translateY(-2px);
+          }
+
+          &.no-icon {
+            // Se não tiver ícone, ele centraliza apenas o texto
+            justify-content: center;
           }
         }
       }
     }
 
     .footer-logo-div {
-      position: relative;
-      width: 220px;
-      height: auto;
+      width: 180px;
+      margin-bottom: 15px;
 
-      & img{
+      img {
         width: 100%;
         height: auto;
       }
@@ -92,13 +102,15 @@
   .footer-bottom {
     background-color: #050505;
     padding: 25px 0;
+    margin-top: 30px;
 
     .bottom-content {
       max-width: 1550px;
       margin: 0 auto;
       text-align: center;
       font-size: 0.75rem;
-      color: #555;
+      color: #dddddd;
+      font-family: 'Montserrat', sans-serif;
     }
   }
 }

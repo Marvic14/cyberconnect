@@ -1,6 +1,6 @@
 @use "@/styles/variables";
 
-.products-page{
+.products-page {
   padding-top: variables.$header-height;
   font-family: variables.$font-main;
   max-width: 1550px;
@@ -11,8 +11,7 @@
   padding-left: 80px;
   padding-bottom: 80px;
 
-
-  .title-products{
+  .title-products {
     color: #fff;
     font-family: variables.$font-main;
     font-size: 38px;
@@ -20,14 +19,117 @@
     text-align: center;
   }
 
-  .product-name{
+  // --- NOVA ESTRUTURA DE FILTRO ---
+  .filter-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 10px;
+
+    .mobile-filter-toggle {
+      display: none; // Escondido no Desktop
+      width: 100%;
+      padding: 12px 20px;
+      background: #131313;
+      color: #00f2ff;
+      border: 1px solid #00f2ff;
+      border-radius: 8px;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+
+      &::after {
+        content: '▼';
+        font-size: 10px;
+        transition: transform 0.3s;
+      }
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+
+      .filter-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #131313;
+        color: #fff;
+        border: 1px solid #00f2ff;
+        padding: 8px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-family: inherit;
+        transition: 0.3s;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+
+        input[type="checkbox"] {
+          display: none;
+        }
+
+        .custom-checkbox {
+          width: 14px;
+          height: 14px;
+          border: 1px solid #00f2ff;
+          border-radius: 3px;
+          position: relative;
+          transition: 0.3s;
+        }
+
+        &:hover {
+          box-shadow: 0 0 10px #00f2ff;
+        }
+
+        // Estado quando selecionado (equivale ao seu antigo .ativado)
+        &:has(input:checked) {
+          background: #00f2ff;
+          color: #000 !important;
+          box-shadow: 0 0 15px #00f2ff;
+
+          .custom-checkbox {
+            border-color: #000;
+            background: #000;
+            &::after {
+              content: '✓';
+              position: absolute;
+              color: #00f2ff;
+              font-size: 10px;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+
+    &.aberto {
+      .mobile-filter-toggle::after {
+        transform: rotate(180deg);
+      }
+      .filter-bar {
+        display: flex !important;
+      }
+    }
+  }
+  // --- FIM DA NOVA ESTRUTURA ---
+
+  .product-name {
     color: #fff;
     text-align: center;
     background: #131313;
     padding: 5px;
   }
 
-  .products-grid{
+  .products-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -36,13 +138,12 @@
     justify-content: center;
   }
 
-
   .product-card {
     width: 400px;
     height: auto;
-    background: rgba(0, 0, 0, 0.7); // Fundo escuro semitransparente
-    border: 1px solid #00f2ff; // Borda neon ciano
-    box-shadow: 0 0 10px rgba(0, 242, 255, 0.3); // Brilho externo
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
     border-radius: 8px;
     text-align: center;
     display: flex;
@@ -50,13 +151,13 @@
     gap: 10px;
     padding-bottom: 20px;
 
-    .container-image{
-        height: 400px;
-        width: 100%;
-        margin-top: 10px;
+    .container-image {
+      height: 400px;
+      width: 100%;
+      margin-top: 10px;
     }
 
-    .product-price{
+    .product-price {
       color: #fff;
       text-shadow: 1px 1px 1px #000;
       font-weight: 900;
@@ -64,7 +165,7 @@
       padding: 5px;
     }
 
-    .product-description{
+    .product-description {
       color: #fff;
       font-size: 12px;
     }
@@ -93,53 +194,20 @@
       text-decoration: none;
 
       &:hover {
-        background: #ff00ff; // Muda para magenta no hover (estética vaporwave)
+        background: #ff00ff;
         box-shadow: 0 0 15px #ff00ff;
       }
     }
   }
 
-  .filter-bar {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-
-    .filter-btn {
-      background: #131313;
-      color: #fff;
-      border: 1px solid #00f2ff;
-      padding: 8px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-family: inherit;
-      transition: 0.3s;
-      text-transform: uppercase;
-      font-size: 12px;
-      font-weight: bold;
-
-      &:hover {
-        box-shadow: 0 0 10px #00f2ff;
-      }
-
-      &.ativado {
-        background: #00f2ff;
-        color: #000 !important;
-        box-shadow: 0 0 15px #00f2ff;
-      }
-    }
-  }
-
-  .notFound{
+  .notFound {
     color: #fff;
     font-size: 20px;
     background: rgba(2, 0, 0, 0.3);
     padding: 5px;
-
   }
 
-  .clear-search{
+  .clear-search {
     border: 0;
     background: #00f2ff;
     color: #000 !important;
@@ -147,14 +215,36 @@
     padding: 5px;
     border-radius: 4px;
   }
+
   .search-container {
     width: 100%;
     max-width: 500px;
     margin: 0 auto 30px;
 
+    .search-wrapper {
+      position: relative; // Essencial para o absolute funcionar
+      display: flex;
+      align-items: center;
+
+      .search-icon {
+        position: absolute;
+        left: 1px;
+        top: 1px;
+        bottom: 0;
+        padding: 10px;
+        background: #00f2ff;
+        color: #131313;
+        border-radius: 7px 0 7px 7px;
+        font-size: 39.5px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
     .search-input {
       width: 100%;
-      padding: 12px 20px;
+      padding: 12px 20px 12px 50px;
       background: #1a1a1a;
       border: 1px solid #00f2ff;
       border-radius: 8px;
@@ -164,48 +254,70 @@
       transition: 0.3s;
 
       &:focus {
-        box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-        border-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 242,255, 0.4);
+        border-color: #0051ff;
       }
     }
   }
+    }
 }
+
 @media (max-width: 768px) {
   .products-page {
-
-    padding-left: 15px;  // Reduz o recuo lateral no mobile
+    padding-left: 15px;
     padding-right: 15px;
-    padding-top: 160px;  // Ajuste conforme a altura do seu header mobile
+    padding-top: 160px;
 
     .title-products {
-      font-size: 28px;   // Título menor para caber em uma linha
+      font-size: 28px;
+    }
+
+    .filter-wrapper {
+      .mobile-filter-toggle {
+        display: flex;
+      }
+
+      .filter-bar {
+        display: none; // Escondido por padrão no mobile
+        flex-direction: column;
+        gap: 0;
+        background: #131313;
+        border: 1px solid #00f2ff;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+
+        .filter-item {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+          border-radius: 0;
+          padding: 15px 20px;
+          justify-content: flex-start;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
     }
 
     .products-grid {
-      gap: 20px;         // Diminui o espaço entre cards no mobile
+      gap: 20px;
       padding: 10px 0;
     }
 
     .product-card {
-      width: 100%;       // O card ocupa a largura total disponível
-      max-width: 350px;  // Mas não deixa ele ficar gigante em tablets pequenos
+      width: 100%;
+      max-width: 350px;
 
       .container-image {
-        height: 300px;   // Reduz a altura da imagem para não ocupar a tela toda
+        height: 300px;
       }
     }
 
     .search-container {
-      max-width: 90%;    // Barra de busca quase na largura total
-    }
-
-    .filter-bar {
-      gap: 8px;          // Botões de filtro mais próximos
-
-      .filter-btn {
-        padding: 6px 15px; // Botões levemente menores
-        font-size: 11px;
-      }
+      max-width: 100%;
     }
   }
 }
