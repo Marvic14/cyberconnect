@@ -1,4 +1,5 @@
 import "./Home.scss";
+import "@/components/Swiper/CategoriaCarousel.scss"
 import AnimatedPage from "@/components/AnimatedPage/AnimatedPage";
 import DescontoPropaganda from "@/assets/img/ui/desconto-exclusivo-image.webP";
 import BestSellerPropaganda from "@/assets/img/ui/Best-Sellers-image.webP";

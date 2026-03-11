@@ -1,57 +1,22 @@
-/* --- ESTILO EXCLUSIVO DO CARROSSEL MOBILE --- */
-.categoria-swiper {
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  padding: 50px 0 60px 0;
+.swiper{
+.swiper-button-prev { left: 5px !important; }
+.swiper-button-next { right: 5px !important; }
 
-  .swiper-wrapper {
-    align-items: stretch;
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-  }
-
-  .div-item {
-    width: 236.96px !important;
-    height: 198.18px !important;
-    margin: 0 auto;
-    background: linear-gradient(to bottom, #748DC2 0%, #fff 100%);
-    border-radius: 30px;
-    cursor: pointer;
-  }
-
-  /* --- CUSTOMIZAÇÃO DOS BOTÕES DO SWIPER --- */
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    z-index: 10 !important; // Garantir que fiquem acima de tudo
-    color: #fff !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50%;
-
-    &::after {
-      font-size: 20px !important;
-    }
-  }
-
-  /* Cores e posição dos pontinhos de paginação */
-  .swiper-pagination {
-    bottom: 5px !important; // Ajuste para ficar dentro da seção
-    z-index: 10 !important; // Garantir visibilidade
-  }
-
+  /* --- PAGINAÇÃO (PONTINHOS) --- */
   .swiper-pagination-bullet {
-    background: #fff !important;
-    opacity: 0.8 !important;
+    background: #0f1130 !important; // Ciano neon para combinar
+    opacity: 0.5;
   }
 
   .swiper-pagination-bullet-active {
-    background: orange !important;
-    opacity: 1 !important;
+    background: rgba(0, 224, 254, 0.9) !important;
+    border: 1px solid #0051ff;
+    opacity: 1;
+    box-shadow: 0 0 10px #00f2ff,
+                0 0  20px #00d4ff;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
   }
 }
