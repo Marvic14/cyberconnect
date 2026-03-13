@@ -15,14 +15,14 @@ export default {
             options: {
                 list: [
                     { title: 'Eletrônicos', value: 'eletronicos' },
-                    { title: 'Casa e Cozinha', value: 'casa-cozinha' },
-                    { title: 'Beleza e Saúde', value: 'beleza-saude' },
-                    { title: 'Acessórios', value: 'acessorios' },
+                    { title: 'Casa e Cozinha', value: 'casa-e-cozinha' },
+                    { title: 'Beleza e Saúde', value: 'beleza-e-saude' },
+                    { title: 'Roupa e Acessório', value: 'roupa-e-acessorio' },
                     { title: 'Infantil', value: 'infantil' },
                 ],
-                layout: 'dropdown' // Facilita a escolha no painel
+                layout: 'dropdown'
             },
-            validation: Rule => Rule.required() // Garante que nenhum produto fique sem categoria
+            validation: Rule => Rule.required()
         }
     ]
 }

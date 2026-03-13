@@ -9,6 +9,7 @@ import { IoIosContacts } from "react-icons/io";
 import {useMobileMenu } from "@/hooks/useMobileMenu";
 import {FaBars, FaTimes} from "react-icons/fa";
 import { createPortal } from 'react-dom';
+import { NavLink } from "react-router-dom";
 
 export default function Header(){
     const { menuAtivo, toggleMenu } = useMobileMenu();
@@ -17,14 +18,32 @@ export default function Header(){
             <header className="header">
                 <div className="header-container">
                     <div className="logo-div">
-                        <img src={Logo} alt="logo da Cyber Connect"/>
+                        <Link to="/">
+                            <img src={Logo} alt="logo da Cyber Connect" />
+                        </Link>
                     </div>
                     <nav className="menu">
                         <ul className="nav">
-                            <li className="nav-item"><Link to={"/"} className="bolder active"><FaHome/> Início</Link></li>
-                            <li className="nav-item"><Link to={"/products"} className="bolder"><IoTicket/>Ofertas</Link></li>
-                            <li className="nav-item"><Link to={"contacts"} className="bolder"><FaHeadphones/>Contatos</Link></li>
-                            <li className="nav-item"><Link to={"/about"} className="bolder"><IoIosContacts/>Quem Somos</Link></li>
+                            <li className="nav-item">
+                                <NavLink to="/homepage" className="bolder">
+                                    <FaHome/> Início
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/products" className="bolder">
+                                    <IoTicket/> Ofertas
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/contacts" className="bolder">
+                                    <FaHeadphones/> Contatos
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/about" className="bolder">
+                                    <IoIosContacts/> Quem Somos
+                                </NavLink>
+                            </li>
                         </ul>
                         <div className="neon-blue-line"></div>
                     </nav>
@@ -43,15 +62,17 @@ export default function Header(){
                 {menuAtivo ? <FaTimes className="mobile-icon"/> : <FaBars className="mobile-icon"/>}
             </button>
             {/* O Portal joga o menu para fora da estrutura animada */}
-            {menuAtivo && createPortal(
-                <nav className="mobile-menu active">
+            {createPortal(
+                <nav className={`mobile-menu ${menuAtivo ? "active" : ""}`}>
                     <ul className="nav">
-                        <li><Link to={"/homepage"}>Início</Link></li>
-                        <li><Link to={"/products"}>Produtos</Link></li>
-                        <li><Link to={"/about"}>Quem Somos</Link></li>
-                        <li><Link to={"/contacts"}>Contatos</Link></li>
+                        <li><NavLink to="/homepage" onClick={toggleMenu}>Início</NavLink></li>
+                        <li><NavLink to="/products" onClick={toggleMenu}>Ofertas</NavLink></li>
+                        <li><NavLink to="/about" onClick={toggleMenu}>Quem Somos</NavLink></li>
+                        <li><NavLink to="/contacts" onClick={toggleMenu}>Contatos</NavLink></li>
                     </ul>
                 </nav>,
+                document.body
+            )}
                 document.body
             )}
 

@@ -22,7 +22,7 @@ export default function Footer() {
                 <div className="footer-section">
                     <h4>Ecossistema</h4>
                     <ul>
-                        <li><Link to="/careers"><FaUsers className="icon" /> Trabalhe Conosco</Link></li>
+                        <li><Link to="https://wa.me/17745143257?text=Olá,%20gostaria%20de%20fazer%20parte%20da%20equipe%20CyberConnect"><FaUsers className="icon" /> Trabalhe Conosco</Link></li>
                         <li><Link to="/contribute"><FaHandHoldingHeart className="icon" /> Contribua com o Projeto</Link></li>
                         <li><Link to="/about">Nossa História</Link></li>
                     </ul>
@@ -33,7 +33,7 @@ export default function Footer() {
                     <h4>Canais de Dúvidas</h4>
                     <ul>
                         <li><a href="https://wa.me/seunumeroaqui" target="_blank" rel="noreferrer"><FaWhatsapp className="icon" /> Suporte pelo WhatsApp</a></li>
-                        <li><a href="mailto:contato@exemplo.com"><FaEnvelope className="icon" /> E-mail Oficial</a></li>
+                        <li><a href="cyberconnection.business@gmail.com"><FaEnvelope className="icon" /> E-mail Oficial</a></li>
                         <li><Link to="/faq">Perguntas Frequentes</Link></li>
                     </ul>
                 </div>
@@ -42,9 +42,9 @@ export default function Footer() {
                 <div className="footer-section">
                     <h4>Transparência</h4>
                     <ul>
-                        <li><Link to="/data-privacy"><FaShieldAlt className="icon" /> Tratamento de Dados</Link></li>
-                        <li><Link to="/terms">Termos de Uso</Link></li>
-                        <li><Link to="/cookies">Política de Cookies</Link></li>
+                        <li><Link><FaShieldAlt className="icon"/> Tratamento de Dados</Link></li>
+                        <li><Link to="#">Termos de Uso</Link></li>
+                        <li><Link to="#">Política de Cookies</Link></li>
                     </ul>
                 </div>
             </div>

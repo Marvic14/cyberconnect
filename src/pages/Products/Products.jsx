@@ -4,13 +4,29 @@ import "./Products.scss";
 import AnimatedPage from "@/components/AnimatedPage/AnimatedPage";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import { FaSearch } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 export default function Products() {
+    const location = useLocation();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [categoriaAtiva, setCategoriaAtiva] = useState("todos");
     const [termoBusca, setTermoBusca] = useState("");
-    const [menuAberto, setMenuAberto] = useState(false); // Estado movido para o local correto
+    const [menuAberto, setMenuAberto] = useState(false);
+
+    // 1. URL Sync: Muito mais simples agora!
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const catDaURL = params.get("categoria");
+
+        if (catDaURL) {
+            // Como o valor na URL (ex: casa-e-cozinha) agora é igual ao value do Sanity,
+            // não precisamos mais do objeto tradutor.
+            setCategoriaAtiva(catDaURL.toLowerCase());
+        } else {
+            setCategoriaAtiva("todos");
+        }
+    }, [location]);
 
     useEffect(() => {
         const query = `*[_type == "produto"]{
@@ -28,12 +44,13 @@ export default function Products() {
             });
     }, []);
 
-    const produtosFiltrados = products.filter(p => {
-        // 1. Filtro de Categoria
+    // --- LÓGICA DE FILTRAGEM LIMPA ---
+    const termo = termoBusca.toLowerCase().trim();
+
+    const resultadosNaCategoria = products.filter(p => {
+        // Comparação direta: Ambos são técnicos (ex: eletronicos === eletronicos)
         const bateCategoria = categoriaAtiva === "todos" || p.categoria === categoriaAtiva;
 
-        // 2. Filtro de Busca
-        const termo = termoBusca.toLowerCase().trim();
         const nomeProduto = p.nome?.toLowerCase() || "";
         const descricaoProduto = p.descricao?.toLowerCase() || "";
         const bateBusca = nomeProduto.includes(termo) || descricaoProduto.includes(termo);
@@ -41,12 +58,23 @@ export default function Products() {
         return bateCategoria && bateBusca;
     });
 
+    const buscaFalhouNaCategoria = termo.length > 0 && resultadosNaCategoria.length === 0 && categoriaAtiva !== "todos";
+
+    const produtosFiltrados = buscaFalhouNaCategoria
+        ? products.filter(p => {
+            const nomeProduto = p.nome?.toLowerCase() || "";
+            const descricaoProduto = p.descricao?.toLowerCase() || "";
+            return nomeProduto.includes(termo) || descricaoProduto.includes(termo);
+        })
+        : resultadosNaCategoria;
+
     const categorias = [
         { label: "Todos", value: "todos" },
         { label: "Eletrônicos", value: "eletronicos" },
-        { label: "Casa", value: "casa-cozinha" },
-        { label: "Beleza", value: "beleza-saude" },
-        { label: "Acessórios", value: "acessorios" }
+        { label: "Casa e Cozinha", value: "casa-e-cozinha" },
+        { label: "Beleza e Saúde", value: "beleza-e-saude" },
+        { label: "Roupa e Acessório", value: "roupa-e-acessorio" }, // Atualizado!
+        { label: "Infantil", value: "infantil" }
     ];
 
     return (
@@ -54,12 +82,8 @@ export default function Products() {
             <main className="products-page">
                 <h1 className="title-products">Vitrine de Ofertas</h1>
 
-                {/* Estrutura do Filtro Adaptada para Desktop e Mobile */}
                 <div className={`filter-wrapper ${menuAberto ? 'aberto' : ''}`}>
-                    <button
-                        className="mobile-filter-toggle"
-                        onClick={() => setMenuAberto(!menuAberto)}
-                    >
+                    <button className="mobile-filter-toggle" onClick={() => setMenuAberto(!menuAberto)}>
                         Filtrar por Categoria
                         <span className="icon-arrow"></span>
                     </button>
@@ -72,7 +96,6 @@ export default function Products() {
                                     checked={categoriaAtiva === cat.value}
                                     onChange={() => {
                                         setCategoriaAtiva(cat.value);
-                                        // Fecha o menu no mobile após selecionar
                                         if (window.innerWidth < 768) setMenuAberto(false);
                                     }}
                                 />

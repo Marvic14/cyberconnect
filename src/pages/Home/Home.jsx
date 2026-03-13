@@ -24,17 +24,19 @@ import FaixaEspecial from "@/assets/img/ui/faixa-especial.webp";
 import { CategoriaCarousel } from "@/components/Swiper/CategoriaCarousel.jsx";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import MercadoLivre from "@/assets/img/ui/mercadoLivre.webp"
-
+import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default function Home() {
     const isDesktop = useMediaQuery('(min-width: 781px)');
+    const navigate = useNavigate(); // 2. Inicialize o hook
 
     const categorias = [
-        { img: Eletronics, titulo: 'Eletrônicos' },
-        { img: HomeKitchen, titulo: 'Casa e Cozinha' },
-        { img: BeautyHealth, titulo: 'Belesa e Saúde' },
-        { img: Clothes, titulo: 'Roupa e Acessório' },
-        { img: Childrens, titulo: 'Infantil' },
+        { img: Eletronics, titulo: 'eletronicos' },
+        { img: HomeKitchen, titulo: 'casa-e-cozinha' },
+        { img: BeautyHealth, titulo: 'beleza-e-saude' },
+        { img: Clothes, titulo: 'roupa-e-acessorio' },
+        { img: Childrens, titulo: 'infantil' },
     ];
 
     return (
@@ -69,7 +71,7 @@ export default function Home() {
                     <div className="div-propaganda"><img src={BestSellerPropaganda} alt="Best Sellers" /></div>
                     <div className="div-propaganda" id="propaganda-master"><img src={EntregaPropaganda} alt="Segurança" /></div>
                 </div>
-                <h2 className="subtitle-hero" id="confira-ofertas">Confira as ofertas <FaCartPlus /></h2>
+                <Link to={"/products"}><h2 className="subtitle-hero" id="confira-ofertas"> Confira as ofertas <FaCartPlus /></h2></Link>
             </main>
 
             <div className="neon-blue-line"></div>
@@ -110,7 +112,11 @@ export default function Home() {
                     {isDesktop ? (
                         <div className="div-items-categorias">
                             {categorias.map((cat, index) => (
-                                <div className="div-item" key={index}>
+                                <div
+                                    className="div-item"
+                                    key={index}
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={() => navigate(`/products?categoria=${cat.titulo}`)}>
                                     <div className="div-image-products">
                                         <img src={cat.img} alt={cat.titulo} height={120} width={123}  loading="lazy"/>
                                     </div>
