@@ -3,12 +3,13 @@
 .products-page {
   padding-top: variables.$header-height;
   font-family: variables.$font-main;
+  width: 100%;
   max-width: 1550px;
   min-height: 100vh;
   background-image: url("@/assets/img/ui/CyberConnect.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding-left: 80px;
+  background-size: cover;
   padding-bottom: 80px;
 
   .title-products {
@@ -143,7 +144,7 @@
   }
 
   .product-card {
-    width: 400px;
+    width: 350px;
     height: auto;
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid #00f2ff;
@@ -156,7 +157,7 @@
     padding-bottom: 20px;
 
     .container-image {
-      height: 400px;
+      height: 250px;
       width: 100%;
       margin-top: 10px;
     }

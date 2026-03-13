@@ -42,6 +42,7 @@ export default function Home() {
     return (
         <AnimatedPage>
             <main className="home-page container-section">
+                <div className="neon-blue-line" id="div-mobile"></div>
                 <div className="container-hero-content">
                     <div className="div-hero-content">
                         <div className="div-hero-text">
@@ -49,7 +50,7 @@ export default function Home() {
                             <div style={{ display: "flex", gap: "20px" }}>
                                 <span className="bolder">Do</span>
                                 <div className="container-image">
-                                <img src={MercadoLivre} alt="Logo da Amazon" className="logoAmazon" />
+                                <img src={MercadoLivre} alt="Logo da Mercado Livre" className="logoAmazon" />
                                 </div>
                             </div>
                             <h2 className="subtitle-hero">Selectionadas para você</h2>
@@ -71,7 +72,7 @@ export default function Home() {
                     <div className="div-propaganda"><img src={BestSellerPropaganda} alt="Best Sellers" /></div>
                     <div className="div-propaganda" id="propaganda-master"><img src={EntregaPropaganda} alt="Segurança" /></div>
                 </div>
-                <Link to={"/products"}><h2 className="subtitle-hero" id="confira-ofertas"> Confira as ofertas <FaCartPlus /></h2></Link>
+                <Link to={"/products"} style={{textDecoration:"none"}}><h2 className="subtitle-hero" id="confira-ofertas"> Confira as ofertas <FaCartPlus /></h2></Link>
             </main>
 
             <div className="neon-blue-line"></div>

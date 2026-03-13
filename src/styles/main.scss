@@ -9,6 +9,8 @@
 }
 
 body {
+  width: 100%;
+  height: auto;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -20,11 +22,10 @@ body {
 }
 
 #root {
-  /* Aqui é o segredo */
-  max-width: 1536px;
+  position: relative;
+  max-width: 1550px;
   margin: 0 auto;    // Centraliza o React no meio do monitor ultra-wide
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

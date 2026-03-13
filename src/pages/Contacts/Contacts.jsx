@@ -20,7 +20,7 @@ export default function Contacts(){
                                 <span className="btn-link">Chamar Agora</span>
                             </a>
 
-                            <a href="https://instagram.com/SEU_USER" target="_blank" className="card-contato instagram">
+                            <a href="https://instagram.com/cyberconnectx" target="_blank" className="card-contato instagram">
                                 <div className="icon-box">
                                     <i className="fab fa-instagram"></i>
                                 </div>
@@ -29,7 +29,7 @@ export default function Contacts(){
                                 <span className="btn-link">Seguir</span>
                             </a>
 
-                            <a href="https://tiktok.com/@SEU_USER" target="_blank" className="card-contato tiktok">
+                            <a href="https://www.tiktok.com/@cyber.connection" target="_blank" className="card-contato tiktok">
                                 <div className="icon-box">
                                     <i className="fab fa-tiktok"></i>
                                 </div>

@@ -73,9 +73,6 @@ export default function Header(){
                 </nav>,
                 document.body
             )}
-                document.body
-            )}
-
         </>
     )
 }
