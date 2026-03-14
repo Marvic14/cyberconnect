@@ -8,7 +8,7 @@ import Contacts from "@/pages/Contacts/Contacts.jsx";
 import Login from "@/pages/Login/Login.jsx"
 import ScrollToTop from "@/components/ScrollToTop.jsx";
 import { AnimatePresence } from "framer-motion";
-
+import Terms from "@/components/TermoDeUso/Terms.jsx";
 
 // Criamos um componente interno para poder usar o useLocation()
 function AnimatedRoutes() {
@@ -25,6 +25,7 @@ function AnimatedRoutes() {
                     <Route path="/products" element={<Products/>}/>
                     <Route path="/about" element={<About/>}/>
                     <Route path="/contacts" element={<Contacts/>}/>
+                    <Route path="/terms" element={<Terms/>} />
                 </Route>
 
                 {/* Rotas que não herdam Header, Footer nem config globals */}

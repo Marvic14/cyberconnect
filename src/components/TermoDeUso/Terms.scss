@@ -1,0 +1,85 @@
+@use "@/styles/variables";
+
+.terms-container {
+  min-height: 100vh;
+  background-color: variables.$bg-dark; // Ou a cor escura que você usa na Home
+  padding: 150px 20px 60px; // Espaço para não ficar embaixo do Header absolute
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-family: variables.$font-secondary;
+
+  .terms-content {
+    max-width: 800px;
+    width: 100%;
+    line-height: 1.6;
+
+    h1 {
+      font-family: variables.$font-main;
+      font-size: 2.5rem;
+      color: #05A7DD; // Seu azul padrão
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .last-update {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 40px;
+    }
+
+    .alert-box {
+      background: rgba(5, 167, 221, 0.1);
+      border-left: 4px solid #05A7DD;
+      padding: 20px;
+      margin-bottom: 40px;
+      border-radius: 4px;
+      font-size: 1.1rem;
+    }
+
+    .terms-section {
+      margin-bottom: 30px;
+
+      h2 {
+        color: #fff;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 5px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      ul {
+        padding-left: 20px;
+        li {
+          margin-bottom: 10px;
+          color: rgba(255, 255, 255, 0.8);
+
+          strong {
+            color: #05A7DD;
+          }
+        }
+      }
+    }
+
+    .footer-notice {
+      margin-top: 50px;
+      text-align: center;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+// Ajuste para telas menores
+@media (max-width: 780px) {
+  .terms-container {
+    padding-top: 160px;
+
+    h1 { font-size: 2rem; }
+  }
+}

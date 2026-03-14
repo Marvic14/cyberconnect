@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="footer-container">
                 <div className="footer-section brand">
                     <div className="footer-logo-div">
-                    <img src={Logo} className="footer-logo" alt=""/>
+                    <img src={Logo} className="footer-logo" alt="Logo Marca da Cyber Connect - Somos uma divulgadora Afiliada ao Mercado Livre"/>
                     </div>
                     <p>Construindo o futuro da web com precisão<br/> técnica e design disruptivo.</p>
                     <div className="social-links">
@@ -24,6 +24,7 @@ export default function Footer() {
                     <ul>
                         <li><Link to="https://wa.me/17745143257?text=Olá,%20gostaria%20de%20fazer%20parte%20da%20equipe%20CyberConnect"><FaUsers className="icon" /> Trabalhe Conosco</Link></li>
                         <li><Link to="/contribute"><FaHandHoldingHeart className="icon" /> Contribua com o Projeto</Link></li>
+                        <li><a href="https://wa.me/5511940162073?text=Ola%2C%20preciso%20de%20un%20WebSite" target="_blank" rel="noreferrer">Realizamos Criação de Sites</a></li>
                         <li><Link to="/about">Nossa História</Link></li>
                     </ul>
                 </div>
@@ -32,7 +33,7 @@ export default function Footer() {
                 <div className="footer-section">
                     <h4>Canais de Dúvidas</h4>
                     <ul>
-                        <li><a href="https://wa.me/seunumeroaqui" target="_blank" rel="noreferrer"><FaWhatsapp className="icon" /> Suporte pelo WhatsApp</a></li>
+                        <li><a href="https://wa.me/5511940162073?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20ou%20algum%20aux%C3%ADlio." target="_blank" rel="noreferrer"><FaWhatsapp className="icon" /> Suporte pelo WhatsApp</a></li>
                         <li><a href="cyberconnection.business@gmail.com"><FaEnvelope className="icon" /> E-mail Oficial</a></li>
                         <li><Link to="/faq">Perguntas Frequentes</Link></li>
                     </ul>
@@ -43,7 +44,7 @@ export default function Footer() {
                     <h4>Transparência</h4>
                     <ul>
                         <li><Link><FaShieldAlt className="icon"/> Tratamento de Dados</Link></li>
-                        <li><Link to="#">Termos de Uso</Link></li>
+                        <li><Link to="/terms">Termos de Uso</Link></li>
                         <li><Link to="#">Política de Cookies</Link></li>
                     </ul>
                 </div>

@@ -28,7 +28,7 @@
   }
   h1{
     color: #131313;
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
     span{
@@ -56,8 +56,12 @@
   .div-hero-content{
     .container-image {
       padding: 10px 0;
+
       & img {
-        border-radius: 20px;
+        border-radius: 5px;
+        width: 250px;
+        height: auto;
+        margin-top: -25px;
       }
     }
   }
@@ -74,8 +78,11 @@
   }
 
   #flex-row-propagandas-image{
+    padding: 0;
+    width: 620px;
     display: flex;
-    gap: 12px;
+    gap: 8px;
+    margin-top: -35px;
   }
 
   .div-propaganda{
@@ -88,11 +95,14 @@
     height: auto;
 
     & img{
+      position: relative;
       background: none;
       width: 100%;
       height: auto;
-
-
+      transition: ease 0.3s;
+    }
+    & img:hover{
+      transform: scale(1.1);
     }
   }
 
@@ -492,7 +502,7 @@
 
   /* ---------------- CONFIGURAÇÕES DA HOMEPAGE ------------------- */
   .home-page {
-    padding-top: 170px;
+    padding-top: 130px;
     height: auto;
     background-size: cover;
     background-attachment: scroll;
@@ -500,11 +510,12 @@
 
     #div-mobile{
       position: relative;
-      top: -25px;
+      margin-top: 2px;
       display: block;
     }
     .neon-desativado-mobile{
       display: none;
+
     }
 
     .div-hero-content {
@@ -518,20 +529,22 @@
       }
 
       .subtitle-hero {
-        font-size: 25px;
+        display: block;
+        font-size: 18px;
         margin: 20px auto;
         width: 100%;
-        display: block;
         background: #0f1130;
         border-radius: 10px;
         color: #fff;
         text-shadow: 1px 1px 5px #000;
+        text-align: center;
       }
 
       img {
-        width: 200px;
+        width: 160px;
         height: auto;
-        border-radius: 20px;
+        border-radius: 5px;
+        margin-top: -30px;
         }
     }
     .container-hero-content {
@@ -548,6 +561,7 @@
     #computer {
       position: relative;
       width: 100%;
+      padding: 0 20px;
       display: flex;
       justify-content: center;
     }
@@ -568,12 +582,24 @@
     }
 
     #flex-row-propagandas-image {
+      margin-top: 5px;
       position: relative;
+      padding: 0 15px;
       width: 100%;
       height: auto;
       transition: 1s;
       & img { width: 100%; height: auto; }
+
+
+      .div-propaganda{
+        transition: ease-in-out 0.5s;
+        img:hover {
+          transform: scale(1.1);
+          box-shadow: 1px 1px 10px #0051ff;
+        }
+      }
     }
+
 
     #confira-ofertas {
       position: relative;
@@ -685,12 +711,24 @@
     }
 
     .infos-about-whatsapp-group{
+      & p{
+        width: 100%;
+        padding: 5px;
+        color: #fff !important;
+        background: #dab006;
+        text-shadow: 1px 1px 2px #000;
+      }
       margin-bottom: 20px;
       & .text-principal{
         margin: 0;
-        font-size: 20px;
+        font-size: 15px;
         border-radius: 0;
         padding: 5px 10px;
+
+        & h1{
+          color: #000 !important;
+        }
+
       }
     }
   }

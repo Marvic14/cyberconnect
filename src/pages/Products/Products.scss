@@ -12,12 +12,32 @@
   background-size: cover;
   padding-bottom: 80px;
 
+
   .title-products {
     color: #fff;
     font-family: variables.$font-main;
     font-size: 38px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
+
+    & span{
+      color: #00d4ff;
+    }
+  }
+
+  .observation{
+    color: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 25px;
+    margin: 30px auto;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.5);
+
+    & span{
+      font-weight: bold;
+    }
   }
 
   // --- NOVA ESTRUTURA DE FILTRO ---
@@ -275,6 +295,18 @@
 
     .title-products {
       font-size: 28px;
+
+      & span{
+        color: #00d4ff;
+      }
+
+    }
+
+    .observation{
+
+      line-height: 22px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
     }
 
     .filter-wrapper {

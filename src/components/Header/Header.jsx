@@ -47,10 +47,13 @@ export default function Header(){
                         </ul>
                         <div className="neon-blue-line"></div>
                     </nav>
-                    <div className="header-button-div">
+                    <div className="header-button-div"
+                         onClick={() => window.open('https://chat.whatsapp.com/EB6ZFQyeSpEHh5qgEuaNQU', '_blank')}
+                         style={{ cursor: 'pointer' }}
+                    >
                         <button className="btn-whatsapp">
                             <div className="div-whatsapp-btn">
-                            <img src={IconeWhatsApp} alt="Ícone do WhatsApp"/>
+                            <img src={IconeWhatsApp} alt="Botão para entrar no grupo de ofertas do WhatsApp da CyberConnect"/>
                             </div>
                             <span className="glow">Grupo</span><br/>
                             <span className="bolder">WhatsApp</span>

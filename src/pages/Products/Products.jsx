@@ -80,7 +80,9 @@ export default function Products() {
     return (
         <AnimatedPage>
             <main className="products-page">
-                <h1 className="title-products">Vitrine de Ofertas</h1>
+                <h1 className="title-products"><span>Vitrine</span> de Ofertas</h1>
+                <p className="observation"><span>Atenção: Todas as compras</span> são feitas diretamente no mercado livre.<br/>Somos apenas divulgadores parceiros</p>
+                <br/>
 
                 <div className={`filter-wrapper ${menuAberto ? 'aberto' : ''}`}>
                     <button className="mobile-filter-toggle" onClick={() => setMenuAberto(!menuAberto)}>

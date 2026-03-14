@@ -27,7 +27,7 @@
     margin: 0;
 
     h4 {
-      font-family: v.$font-secondary;
+      font-family: v.$font-secondary, sans-serif;
       font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -169,8 +169,8 @@
               }
 
               .icon {
-                font-size: 1.8rem;
-                color: #555;
+                font-size: 4rem;
+                color: #0884b1;
                 display: flex;
                 justify-content: center;
               }

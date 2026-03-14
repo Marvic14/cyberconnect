@@ -11,7 +11,7 @@ export default function Contacts(){
                         <p className="subtitle">Conecte-se conosco em nossas redes sociais</p>
 
                         <div className="contatos-grid">
-                            <a href="https://wa.me/SEUNUMERO" target="_blank" className="card-contato whatsapp">
+                            <a href="https://wa.me/5511940162073?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20ou%20algum%20aux%C3%ADlio." target="_blank" className="card-contato whatsapp">
                                 <div className="icon-box">
                                     <i className="fab fa-whatsapp"></i>
                                 </div>

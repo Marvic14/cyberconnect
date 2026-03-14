@@ -80,7 +80,7 @@ export default function Home() {
             <section className="products">
                 <section className="info-products">
                     <div className="div-title-products">
-                        <h2 className="subtitle-products">Por que comprar conosco?</h2>
+                        <h2 className="subtitle-products">Por que comprar por meio da Cyber?</h2>
                         <div className="div-info-items">
                             <div className="div-icon-Information">
                                 <div className="div-items">
@@ -106,7 +106,7 @@ export default function Home() {
                 </section>
 
                 <div className="precategoria">
-                    <h2 className="subtitle-products"><span>Ofertas em Destaques</span> | monitoramento frequente</h2>
+                    <h2 className="subtitle-products"><span>Achadinhos em Destaques</span> | monitoramento frequente</h2>
                 </div>
 
                 <section className="categorias">
@@ -150,12 +150,18 @@ export default function Home() {
                     <div className="div-image">
                         <img src={FaixaEspecial} alt="" />
                     </div>
-                    <div className="button-div">
+
+                    <div className="button-div"
+                         onClick={() => window.open('https://chat.whatsapp.com/EB6ZFQyeSpEHh5qgEuaNQU', '_blank')}
+                         style={{ cursor: 'pointer' }}
+                    >
                         <button className="btn-whatsapp">
                             <div className="div-whatsapp-btn"><img src={IconeWhatsApp} alt="Icone WhatsApp" /></div>
                             <span className="glow">Grupo</span><br />
                             <span className="bolder">WhatsApp</span>
+
                         </button>
+
                     </div>
                 </div>
                 <div className="div-image"><img src={MockupWhatsApp} alt="Mockup" /></div>

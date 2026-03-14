@@ -22,8 +22,9 @@ export default function About(){
                             <p>
                                 Acreditamos que a tecnologia deve ser acessível e facilitar o seu dia a dia.
                                 Por isso, trabalhamos incansavelmente para filtrar o que há de melhor no ecossistema
-                                do e-commerces nacional.
+                                do e-commerces nacional.<br/>Precisa de um site como este? Conheça nossos serviços de criação de e-commerce e landing pages em SP.
                             </p>
+
                             <div className="div-image">
                                 <img src={BandeiraBrasil} alt="bandeira do Brasil - Nossos negócios atualmente se concentram fortemente no Brasil"/>
                             </div>
