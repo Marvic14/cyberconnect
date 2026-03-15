@@ -3,10 +3,10 @@ export default {
     type: 'document',
     title: 'Produtos CyberConnect',
     fields: [
-        { name: 'nome', type: 'string', title: 'Nome do Produto' },
+        { name: 'nome', type: 'string', title: 'Nome do Produto', initialValue: `📦 ` },
         { name: 'linkAfiliado', type: 'url', title: 'Link de Afiliado' },
         { name: 'foto', type: 'image', title: 'Imagem do Produto', options: { hotspot: true } },
-        { name: 'descricao', type: 'text', title: 'Descrição Curta' },
+        { name: 'descricao', type: 'text', title: 'Descrição Curta', initialValue: `Clique em aproveitar a oferta para maiores informações sobre o produto.\nAtenção: As promoções podem sofrer variações.`},
         { name: "preco", type: "number", title: "Preço do produto" },
         {
             name: 'categoria',

@@ -115,8 +115,13 @@ export default function Products() {
                             type="text"
                             placeholder="Pesquisar ventiladores, fones..."
                             value={termoBusca}
-                            onChange={(e) => setTermoBusca(e.target.value)}
+                            onChange={(e) => {
+                                // Remove caracteres perigosos instantaneamente
+                                const sanitizedValue = e.target.value.replace(/[<>/\\{}()[\]]/g, "");
+                                setTermoBusca(sanitizedValue);
+                            }}
                             className="search-input"
+                            maxLength={50} // Evita ataques de negação de serviço por strings gigantes
                         />
                     </div>
                 </div>
